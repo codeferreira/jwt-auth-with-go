@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/codeferreira/jwt-auth-with-go/initializers"
 	"github.com/gin-gonic/gin"
@@ -19,4 +20,6 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	router.Run(os.Getenv("PORT"))
 }
