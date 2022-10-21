@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
 
 	"github.com/codeferreira/jwt-auth-with-go/initializers"
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
@@ -11,5 +12,11 @@ func init() {
 }
 
 func main() {
-	fmt.Println("Hello World!")
+	router := gin.Default()
+
+	router.GET("/ping", func(context *gin.Context) {
+		context.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+		})
+	})
 }
