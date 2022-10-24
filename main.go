@@ -25,6 +25,7 @@ func main() {
 	})
 
 	router.POST("/signup", controllers.Signup)
+	router.POST("/login", controllers.Login)
 
 	router.Run(os.Getenv("PORT"))
 }
