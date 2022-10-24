@@ -6,6 +6,7 @@ import (
 
 	"github.com/codeferreira/jwt-auth-with-go/controllers"
 	"github.com/codeferreira/jwt-auth-with-go/initializers"
+	"github.com/codeferreira/jwt-auth-with-go/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,6 +27,7 @@ func main() {
 
 	router.POST("/signup", controllers.Signup)
 	router.POST("/login", controllers.Login)
+	router.GET("/validate", middleware.RequireAuth, controllers.Validate)
 
 	router.Run(os.Getenv("PORT"))
 }
